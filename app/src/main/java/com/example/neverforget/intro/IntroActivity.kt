@@ -22,10 +22,10 @@ class IntroActivity : AppCompatActivity() {
 
         val items = ArrayList<IntroItemsModel>()
 
-        items.add(IntroItemsModel("tittle1","short desc",R.mipmap.ic_launcher_round,"description"))
-        items.add(IntroItemsModel("tittle2","short desc",R.mipmap.ic_launcher_round,"description"))
-        items.add(IntroItemsModel("tittle3","short desc",R.mipmap.ic_launcher_round,"description"))
-        items.add(IntroItemsModel("tittle4","short desc",R.mipmap.ic_launcher_round,"description"))
+        items.add(IntroItemsModel("Welcome to Neverforget","The helpful assistant for everyday life tasks",R.drawable.facebook_icon,"nenejfniuwnviuwnviunwviunwerrbfvoyabeorvybqoeryvgoaeybvroyaebvoyqerbviqeyrvboqeryvboqeryvboqeybvoqeyrbvoqeuryvboqerybvoqeryvboqyv"))
+        items.add(IntroItemsModel("Use Tags and Save All Here","",R.drawable.instagram_icon,"nenejfniuwnviuwnviunwviunwerrbfvoyabeorvybqoeryvgoaeybvroyaebvoyqerbviqeyrvboqeryvboqeryvboqeybvoqeyrbvoqeuryvboqerybvoqeryvboqyv"))
+        items.add(IntroItemsModel("Simple and Secure","",R.drawable.whatsapp_icon,"nenejfniuwnviuwnviunwviunwerrbfvoyabeorvybqoeryvgoaeybvroyaebvoyqerbviqeyrvboqeryvboqeryvboqeybvoqeyrbvoqeuryvboqerybvoqeryvboqyv"))
+        items.add(IntroItemsModel("Get RFID Tags","",R.drawable.youtube_icon,"nenejfniuwnviuwnviunwviunwerrbfvoyabeorvybqoeryvgoaeybvroyaebvoyqerbviqeyrvboqeryvboqeryvboqeybvoqeyrbvoqeuryvboqerybvoqeryvboqyv"))
 
 
         val adapter = IntroPagerAdapter(items,this@IntroActivity)
@@ -38,6 +38,7 @@ class IntroActivity : AppCompatActivity() {
             introPagerView.currentItem = ++position
 
         }
+
 
         //set item change listener and check shoul show last item
         adapter.itemChangeListener = object: IntroPagerAdapter.ItemChangeListener{
@@ -58,8 +59,8 @@ class IntroActivity : AppCompatActivity() {
 
     //show get started btn and hide others
     fun showLastItem(){
-        introNextBtn.visibility = View.INVISIBLE
-        skipIntroText.visibility = View.INVISIBLE
+        introNextBtn.visibility = View.GONE
+        skipIntroText.visibility = View.GONE
         introGetStartedBtn.visibility = View.VISIBLE
     }
 
@@ -67,6 +68,6 @@ class IntroActivity : AppCompatActivity() {
     fun returnLastItem(){
         introNextBtn.visibility = View.VISIBLE
         skipIntroText.visibility = View.VISIBLE
-        introGetStartedBtn.visibility = View.INVISIBLE
+        introGetStartedBtn.visibility = View.GONE
     }
 }
