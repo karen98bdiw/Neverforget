@@ -1,10 +1,18 @@
 package com.example.neverforget.intro
 
+import android.content.Context
+import android.content.Intent
+import android.content.SharedPreferences
 import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.MotionEvent
 import android.view.View
+import android.view.Window
+import android.view.WindowManager
+import android.widget.LinearLayout
+import com.example.neverforget.MainActivity
 import com.example.neverforget.R
 import kotlinx.android.synthetic.main.activity_intro.*
 
@@ -18,14 +26,43 @@ class IntroActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        if(isAppOnenedYet()){
+            startActivity(Intent(this@IntroActivity,MainActivity::class.java))
+        }
+
+        requestWindowFeature(Window.FEATURE_NO_TITLE)
+        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN)
+
         setContentView(R.layout.activity_intro)
+
+        if(supportActionBar != null){
+            supportActionBar!!.hide()
+        }
 
         val items = ArrayList<IntroItemsModel>()
 
-        items.add(IntroItemsModel("Welcome to Neverforget","The helpful assistant for everyday life tasks",R.drawable.facebook_icon,"nenejfniuwnviuwnviunwviunwerrbfvoyabeorvybqoeryvgoaeybvroyaebvoyqerbviqeyrvboqeryvboqeryvboqeybvoqeyrbvoqeuryvboqerybvoqeryvboqyv"))
-        items.add(IntroItemsModel("Use Tags and Save All Here","",R.drawable.instagram_icon,"nenejfniuwnviuwnviunwviunwerrbfvoyabeorvybqoeryvgoaeybvroyaebvoyqerbviqeyrvboqeryvboqeryvboqeybvoqeyrbvoqeuryvboqerybvoqeryvboqyv"))
-        items.add(IntroItemsModel("Simple and Secure","",R.drawable.whatsapp_icon,"nenejfniuwnviuwnviunwviunwerrbfvoyabeorvybqoeryvgoaeybvroyaebvoyqerbviqeyrvboqeryvboqeryvboqeybvoqeyrbvoqeuryvboqerybvoqeryvboqyv"))
-        items.add(IntroItemsModel("Get RFID Tags","",R.drawable.youtube_icon,"nenejfniuwnviuwnviunwviunwerrbfvoyabeorvybqoeryvgoaeybvroyaebvoyqerbviqeyrvboqeryvboqeryvboqeybvoqeyrbvoqeuryvboqerybvoqeryvboqyv"))
+        //get intro resources
+        val firstTittle = applicationContext.resources.getString(R.string.intro_first_tittle)
+        val firstShortDesc = applicationContext.resources.getString(R.string.intro_first_short_desc)
+        val firstDesc = applicationContext.resources.getString(R.string.intro_first_desc)
+
+        val secondTittle = applicationContext.resources.getString(R.string.intro_second_tittle)
+        val secondDesc = applicationContext.resources.getString(R.string.intro_second_desc)
+
+        val thirdTittle = applicationContext.resources.getString(R.string.intro_third_tittle)
+        val thirdDesc = applicationContext.resources.getString(R.string.intro_third_desc)
+
+        val fourthTittle = applicationContext.resources.getString(R.string.intro_fourth_tittle)
+        val fourthDesc = applicationContext.resources.getString(R.string.intro_fourth_desc)
+        val fourthUnderDescriptionLink = this@IntroActivity.resources.getString(R.string.tags_starter_pack_link_text)
+
+        //create intro segments
+        items.add(IntroItemsModel(firstTittle,firstShortDesc,R.drawable.facebook_icon,firstDesc,""))
+        items.add(IntroItemsModel(secondTittle,"",R.drawable.instagram_icon,secondDesc,""))
+        items.add(IntroItemsModel(thirdTittle,"",R.drawable.whatsapp_icon,thirdDesc,""))
+        items.add(IntroItemsModel(fourthTittle,"",R.drawable.youtube_icon,fourthDesc,fourthUnderDescriptionLink))
 
 
         val adapter = IntroPagerAdapter(items,this@IntroActivity)
@@ -38,6 +75,36 @@ class IntroActivity : AppCompatActivity() {
             introPagerView.currentItem = ++position
 
         }
+
+        introGetStartedBtn.setOnClickListener {
+            saveOpeningData()
+            finish()
+            startActivity(Intent(this@IntroActivity,MainActivity::class.java))
+
+        }
+
+        skipIntroText.setOnClickListener {
+            saveOpeningData()
+            finish()
+            startActivity(Intent(this@IntroActivity,MainActivity::class.java))
+
+        }
+
+        //init intro tab layout
+        introTabLayout.setupWithViewPager(introPagerView)
+        introTabLayout.clearOnTabSelectedListeners()
+        val x = introTabLayout.getChildAt(0) as LinearLayout
+
+        //remove touch listeners from tablayout
+        for(i in 0 until x.childCount){
+            x.getChildAt(i).setOnTouchListener(object:View.OnTouchListener{
+                override fun onTouch(v: View?, event: MotionEvent?): Boolean {
+                    return true
+                }
+
+            })
+        }
+
 
 
         //set item change listener and check shoul show last item
@@ -69,5 +136,19 @@ class IntroActivity : AppCompatActivity() {
         introNextBtn.visibility = View.VISIBLE
         skipIntroText.visibility = View.VISIBLE
         introGetStartedBtn.visibility = View.GONE
+    }
+
+    fun saveOpeningData(){
+        val pref = applicationContext.getSharedPreferences("opening", Context.MODE_PRIVATE)
+        val editor = pref.edit()
+        editor.putBoolean("isAppOpennedBefore",true)
+        editor.commit()
+    }
+
+    fun isAppOnenedYet():Boolean{
+        val pref = applicationContext.getSharedPreferences("opening", Context.MODE_PRIVATE)
+
+        val isOpened = pref.getBoolean("isAppOpennedBefore",false)
+        return  isOpened
     }
 }

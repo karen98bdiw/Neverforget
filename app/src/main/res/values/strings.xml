@@ -1,3 +1,16 @@
 <resources>
     <string name="app_name">Neverforget</string>
+    <string name="intro_next_btn">next</string>
+    <string name="intro_getStarted_btn">get Started</string>
+    <string name="intro_skip_text">skip intro</string>
+    <string name="intro_first_tittle">Welcome to Neverforget</string>
+    <string name="intro_first_short_desc">The helpful assistant for everyday life tasks</string>
+    <string name="intro_first_desc">Do we really need to clutter our brains with multiple pin codes we should remember?Neverforget will do the job for us,so we can focus on more important things in life.</string>
+    <string name="intro_second_tittle">Use Tags and Save All Here</string>
+    <string name="intro_second_desc">Its not only Card PINs,use RFID tag sticker on any item like your luggage,bick lock,literally anything,and keep the secret information in the app.</string>
+    <string name="intro_third_tittle">Simple and Secure</string>
+    <string name="intro_third_desc">Just scan the card or the RFID tag via app,sure after unlocking it with your selected level of security and the secret will appear.Your data is encrypted and belopng only for you.</string>
+    <string name="intro_fourth_tittle">Get RFID Tags</string>
+    <string name="intro_fourth_desc">We make it easy for you to buy carefully selected top quality RFID Tags.</string>
+    <string name="tags_starter_pack_link_text">Neverforget - RFID Starter Pack</string>
 </resources>

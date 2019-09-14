@@ -3,64 +3,79 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:orientation="vertical"
-        android:padding="20dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideLineSecond"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.4"
+    />
+
     <TextView
             android:id="@+id/introItemTittleView"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/introItemShortDescrioptionView"
-            android:textSize="20sp"
-            android:text="Welcome to never forget"
+            style="@style/IntroTittleStyle"
             android:textAlignment="center"
-            app:layout_constraintVertical_weight=".1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@string/intro_first_tittle"
+            android:layout_marginTop="5dp"
     />
+
 
     <TextView
-            android:id="@+id/introItemShortDescrioptionView"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            app:layout_constraintTop_toBottomOf="@id/introItemTittleView"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/introItemImgView"
-            android:textSize="15sp"
-            android:text="this is the cool project"
+            android:id="@+id/introItemShortDescriptionView"
+            style="@style/IntroBaseTextStyle"
             android:textAlignment="center"
-            app:layout_constraintVertical_weight=".1"
+            app:layout_constraintVertical_bias=".1"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/introItemTittleView"
+            app:layout_constraintBottom_toTopOf="@id/introItemImgView"
+            android:text="@string/intro_first_short_desc"/>
 
-    />
+
 
     <ImageView
             android:id="@+id/introItemImgView"
-            android:layout_width="400dp"
-            android:layout_height="0dp"
-            android:src="@mipmap/ic_launcher"
-            app:layout_constraintTop_toBottomOf="@id/introItemShortDescrioptionView"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/introItemDescriptionView"
-            app:layout_constraintVertical_weight=".4"
+            android:layout_width="match_parent"
+            android:layout_height="222dp"
+            android:src="@drawable/facebook_icon"
+            app:layout_constraintTop_toTopOf="@id/guideLineSecond"
+            app:layout_constraintBottom_toBottomOf="@id/guideLineSecond"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"
     />
 
     <TextView
             android:id="@+id/introItemDescriptionView"
-            android:layout_width="wrap_content"
-            android:layout_height="0dp"
-            android:padding="30dp"
-            app:layout_constraintTop_toBottomOf="@id/introItemImgView"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
-            android:textSize="15sp"
+            style="@style/IntroBaseTextStyle"
             android:textAlignment="center"
-            android:text="never forgetnever forgetnever forgetnever forgetnever forgetnever forgetnever forgetnever forgetnever forgetnever forgetnever forgetnever forgetnever forgetnever forgetnever forgetnever forgetnever forgetnever forget"
-            app:layout_constraintVertical_weight=".4"
+            android:text="@string/intro_first_desc"
+            app:layout_constraintTop_toBottomOf="@id/introItemImgView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="20dp"
+            android:padding="10dp"
+
     />
+
+    <TextView
+            android:id="@+id/introItemUnderDescLinkView"
+            style="@style/IntroBaseTextStyle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/introItemDescriptionView"
+            android:text="@string/tags_starter_pack_link_text"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/underDescriptionLinkColor"
+
+    />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -43,19 +43,14 @@ class IntroPagerAdapter(private val items:ArrayList<IntroItemsModel>,private val
 
         itemView.introItemTittleView.text = curentItem.tittle
 
-        itemView.introItemShortDescrioptionView.text = curentItem.shortDescription
+        itemView.introItemShortDescriptionView.text = curentItem.shortDescription
 
         itemView.introItemImgView.setImageResource(curentItem.img)
 
         itemView.introItemDescriptionView.text = curentItem.description
 
-//        itemView.introItemTittleView.text = "tittle"
-//
-//        itemView.introItemShortDescrioptionView.text = "short description"
-//
-//        itemView.introItemImgView.setImageResource(curentItem.img)
-//
-//        itemView.introItemDescriptionView.text = "description"
+        itemView.introItemUnderDescLinkView.text = curentItem.underDescriptionArrayLinkedVariables
+
 
         container.addView(itemView)
 
