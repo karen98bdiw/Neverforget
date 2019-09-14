@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Neverforget</string>
     <string name="intro_next_btn">next</string>
-    <string name="intro_getStarted_btn">get Started</string>
+    <string name="intro_getStarted_btn">get started</string>
     <string name="intro_skip_text">skip intro</string>
     <string name="intro_first_tittle">Welcome to Neverforget</string>
     <string name="intro_first_short_desc">The helpful assistant for everyday life tasks</string>
