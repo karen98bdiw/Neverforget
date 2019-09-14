@@ -26,7 +26,9 @@ class IntroActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         if(isAppOnenedYet()){
+            finish()
             startActivity(Intent(this@IntroActivity,MainActivity::class.java))
+            overridePendingTransition(0,0)
         }
 
         requestWindowFeature(Window.FEATURE_NO_TITLE)
