@@ -7,13 +7,11 @@ import android.opengl.Visibility
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.MotionEvent
-import android.view.View
-import android.view.Window
-import android.view.WindowManager
+import android.view.*
 import android.widget.LinearLayout
 import com.example.neverforget.MainActivity
 import com.example.neverforget.R
+import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_intro.*
 
 class IntroActivity : AppCompatActivity() {
@@ -104,8 +102,6 @@ class IntroActivity : AppCompatActivity() {
 
             })
         }
-
-
 
         //set item change listener and check shoul show last item
         adapter.itemChangeListener = object: IntroPagerAdapter.ItemChangeListener{

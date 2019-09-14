@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<androidx.constraintlayout.widget.ConstraintLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
@@ -7,14 +7,44 @@
         android:padding="10dp"
         tools:context=".intro.IntroActivity">
 
-   <androidx.viewpager.widget.ViewPager
-           android:id="@+id/introPagerView"
-           android:layout_width="match_parent"
-           android:layout_height="match_parent"
+    <androidx.viewpager.widget.ViewPager
+            android:id="@+id/introPagerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
 
-   >
+    >
 
-   </androidx.viewpager.widget.ViewPager>
+
+
+    </androidx.viewpager.widget.ViewPager>
+
+    <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/introGuideLine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent=".5"
+    />
+
+    <com.google.android.material.tabs.TabLayout
+            android:id="@+id/introTabLayout"
+            android:layout_width="100dp"
+            android:layout_gravity="center_horizontal"
+            app:tabIndicatorHeight="0dp"
+            android:layout_height="50dp"
+            app:tabBackground="@drawable/intro_tab_selector"
+            app:tabRippleColor="@null"
+            app:layout_constraintTop_toBottomOf="@id/introGuideLine"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+
+    >
+
+    </com.google.android.material.tabs.TabLayout>
 
 
 
@@ -22,19 +52,12 @@
             android:orientation="vertical"
             android:layout_gravity="bottom"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+    >
 
-        <com.google.android.material.tabs.TabLayout
-                android:id="@+id/introTabLayout"
-                android:layout_width="100dp"
-                android:layout_gravity="center_horizontal"
-                app:tabIndicatorHeight="0dp"
-                android:layout_height="50dp"
-                app:tabBackground="@drawable/intro_tab_selector"
-                app:tabRippleColor="@null"
-        >
 
-        </com.google.android.material.tabs.TabLayout>
 
         <Button
                 android:id="@+id/introNextBtn"
@@ -68,4 +91,4 @@
     </LinearLayout>
 
 
-</FrameLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
