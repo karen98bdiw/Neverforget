@@ -24,4 +24,7 @@
     <string name="master_pin_tittle">Master PIN</string>
     <string name="no_protection_tittle">No Protection</string>
     <string name="no_protection_text">No protection check before launching the app you will rely on you device security</string>
+    <string name="no_protection_diolog_positive_btntext">Agree</string>
+    <string name="no_protection_diolog_negative_btntext">Disagree</string>
+    <string name="no_protection_diolog_text">Choosing "No Protection" option means you will be able to open the applicaton with additional layer of security,relying only on general protection of your device.</string>
 </resources>

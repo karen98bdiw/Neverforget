@@ -27,9 +27,18 @@ class IntroActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         if(isAppOnenedYet()){
-            finish()
-            startActivity(Intent(this@IntroActivity,AskForProtectionActtivity::class.java))
-            overridePendingTransition(0,0)
+
+            if(pinSignedStatus()){
+                finish()
+                startActivity(Intent(this@IntroActivity,MainActivity::class.java))
+                overridePendingTransition(0,0)
+            }else{
+                finish()
+                startActivity(Intent(this@IntroActivity,AskForProtectionActtivity::class.java))
+                overridePendingTransition(0,0)
+            }
+
+
         }
 
         requestWindowFeature(Window.FEATURE_NO_TITLE)
@@ -149,5 +158,13 @@ class IntroActivity : AppCompatActivity() {
 
         val isOpened = pref.getBoolean("isAppOpennedBefore",false)
         return  isOpened
+    }
+
+    fun pinSignedStatus():Boolean{
+        val pref = applicationContext.getSharedPreferences("pin",Context.MODE_PRIVATE)
+
+        val isPinSigned = pref.getBoolean("isProtectionChecked",false)
+
+        return isPinSigned
     }
 }
