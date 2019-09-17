@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:padding="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
+
+        <TextView
+                android:id="@+id/checkingProtectiongTittle"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                style="@style/IntroTittleStyle"
+                android:text = "@string/checkingProtectingTittle"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+        />
+
+        <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/verticalGuideLine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent=".2"
+        />
+
+        <ImageView
+                android:id="@+id/withPinImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_launcher"
+                app:layout_constraintTop_toBottomOf="@id/checkingProtectiongTittle"
+                app:layout_constraintStart_toStartOf="@+id/verticalGuideLine"
+                android:layout_marginTop="10dp"
+        />
+
+        <RadioButton
+                android:id="@+id/withProtectionCheck"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:layout_constraintEnd_toStartOf="@id/verticalGuideLine"
+                app:layout_constraintTop_toBottomOf="@id/withPinImg"
+                android:checked="true"
+
+        />
+
+        <TextView
+                android:id="@+id/masterPinTextTittle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/master_pin_tittle"
+                android:textColor="@color/introBaseTextColor"
+                android:textSize="20sp"
+                app:layout_constraintTop_toBottomOf="@id/withPinImg"
+                app:layout_constraintStart_toEndOf="@id/withProtectionCheck"
+                app:layout_constraintBaseline_toBaselineOf="@id/withProtectionCheck"
+        />
+
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/IntroBaseTextStyle"
+                android:text="@string/master_pin_use_text"
+                app:layout_constraintTop_toBottomOf="@id/masterPinTextTittle"
+
+                app:layout_constraintStart_toEndOf="@id/withProtectionCheck"
+        />
+
+        <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/horizontalGuideLine"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent=".5"
+        />
+
+        <ImageView
+                android:id="@+id/withoutPinImg"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_launcher"
+                app:layout_constraintTop_toBottomOf="@id/horizontalGuideLine"
+                app:layout_constraintStart_toEndOf="@id/verticalGuideLine"
+        />
+
+
+        <RadioButton
+                android:id="@+id/withouthProtectionCheck"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                app:layout_constraintEnd_toStartOf="@id/verticalGuideLine"
+                app:layout_constraintTop_toBottomOf="@id/withoutPinImg"
+
+        />
+
+        <TextView
+                android:id="@+id/masterWithoutPinTextTittle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/no_protection_tittle"
+                android:textColor="@color/introBaseTextColor"
+                android:textSize="20sp"
+                app:layout_constraintTop_toBottomOf="@id/withoutPinImg"
+                app:layout_constraintStart_toEndOf="@id/withouthProtectionCheck"
+                app:layout_constraintBaseline_toBaselineOf="@id/withouthProtectionCheck"
+        />
+
+        <TextView
+                android:id="@+id/withoutPinDesc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@style/IntroBaseTextStyle"
+                android:text="@string/no_protection_text"
+                app:layout_constraintTop_toBottomOf="@id/masterWithoutPinTextTittle"
+
+                app:layout_constraintStart_toEndOf="@id/withouthProtectionCheck"
+        />
+
+        <Button
+                android:id="@+id/protectionCheckBtn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/intro_next_btn"
+                style="@style/IntroBtnStyle"
+                app:layout_constraintTop_toBottomOf="@id/withoutPinDesc"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+        />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+

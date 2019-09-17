@@ -11,6 +11,7 @@ import android.view.*
 import android.widget.LinearLayout
 import com.example.neverforget.MainActivity
 import com.example.neverforget.R
+import com.example.neverforget.askForProtection.AskForProtectionActtivity
 import com.google.android.material.tabs.TabLayout
 import kotlinx.android.synthetic.main.activity_intro.*
 
@@ -27,7 +28,7 @@ class IntroActivity : AppCompatActivity() {
 
         if(isAppOnenedYet()){
             finish()
-            startActivity(Intent(this@IntroActivity,MainActivity::class.java))
+            startActivity(Intent(this@IntroActivity,AskForProtectionActtivity::class.java))
             overridePendingTransition(0,0)
         }
 
@@ -79,14 +80,14 @@ class IntroActivity : AppCompatActivity() {
         introGetStartedBtn.setOnClickListener {
             saveOpeningData()
             finish()
-            startActivity(Intent(this@IntroActivity,MainActivity::class.java))
+            startActivity(Intent(this@IntroActivity,AskForProtectionActtivity::class.java))
 
         }
 
         skipIntroText.setOnClickListener {
             saveOpeningData()
             finish()
-            startActivity(Intent(this@IntroActivity,MainActivity::class.java))
+            startActivity(Intent(this@IntroActivity,AskForProtectionActtivity::class.java))
 
         }
 
